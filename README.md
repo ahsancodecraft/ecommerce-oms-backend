@@ -1,19 +1,21 @@
-# 🚀 E-Commerce Order Management System (OMS) - Backend API
+=====================================================================================
+# ================ 🚀 E-Commerce Order Management System (OMS) - Backend API ========
+### ================= Production-Grade Backend Implementation =====================  ===================== of E-OMS(E-Commerce Order Management System) ================= 
+ ### =================built using **Python**, **FastAPI**, **SQLAlchemy**=========== =====================and **Object-Oriented Programming (OOP)** principles.==========
+ ```
+```
+### ======================= 🌟 Project Overview & Features ==========================
 
-A practical, production-grade backend implementation of an E-Commerce Order Management System built using **Python**, **FastAPI**, **SQLAlchemy**, and **Object-Oriented Programming (OOP)** principles.
-
----
-
-## 🌟 Project Overview & Features
+### Indicating:
 
 This backend service handles core e-commerce workflows reliably while preventing common issues such as overselling, inconsistent pricing, and uncoordinated inventory changes.
 
-* **📦 Product Catalog**: Manage products with strict validation on stock, pricing, and active status.
-* **🔐 Secure Authentication & Authorization**: JWT-based user registration and login, ensuring customers can only access and modify their own orders.
-* **🛒 Shopping Cart & Checkout**: Dynamic server-side price calculation using `Decimal`, inventory reservation, and simulated payment processing.
-* **⚙️ Order Lifecycle & State Machine**: Explicit status transitions (`PENDING_PAYMENT` ➔ `CONFIRMED` / `CANCELLED`).
-* **🔄 Reliable Cancellation Workflow**: Handle order cancellations and safe inventory restoration without duplicate restocks.
-* **🧪 Automated Testing**: Comprehensive unit and integration test suite built with `pytest`.
+***📦 Product Catalog**: Manage products with strict validation on stock, pricing, and active status.
+***🔐 Secure Authentication & Authorization**: JWT-based user registration and login, ensuring customers can only access and modify their own orders.
+***🛒 Shopping Cart & Checkout**: Dynamic server-side price calculation using `Decimal`, inventory reservation, and simulated payment processing.
+***⚙️ Order Lifecycle & State Machine**: Explicit status transitions (`PENDING_PAYMENT` ➔ `CONFIRMED` / `CANCELLED`).
+***🔄 Reliable Cancellation Workflow**: Handle order cancellations and safe inventory restoration without duplicate restocks.
+***🧪 Automated Testing**: Comprehensive unit and integration test suite built with `pytest`.
 
 ---
 
@@ -60,27 +62,22 @@ python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings
  python init_db.py
  ```
 ### 🚀 Running the Application
+
 ###    Start the development server using Uvicorn:
 ```bash
 uvicorn main:app --reload
 ```
-### 🚀 Running the Application
-
-###  Start the development server using Uvicorn:
-```bash
-uvicorn main:app --reload
-```
-### Open your browser and explore the interactive Swagger UI documentation:
+### 👉 Open your browser and explore the interactive Swagger UI documentation:
 ```go to
-👉 http://127.0.0.1:8000/docs
+     http://127.0.0.1:8000/docs
 ```
-### 🧪 Running TestsTo run the automated test suite and verify business rules:
+### 🧪 Running Tests To run the automated test suite and verify business rules(At VS-Code Terminal):
 ```bash
-pytest
+      pytest
 ```
-### 📌 Main API Endpoints
+###                        📌 Main API Endpoints
 ``
-### Method 	Endpoint	         Description	                       Access
+### Method 	  Endpoints	         Description	                       Access
 ```
  POST	       /register       Register a new customer      	        Public
  POST	      /login	       Authenticate and obtain JWT token	    Public
@@ -88,33 +85,5 @@ pytest
  POST	    /checkout          Submit cart items and place order	    Authenticated
  GET	   /orders/me	       Fetch logged-in user's order history	    Authenticated
  POST     /orders/{id}/cancel  Cancel Orders/Restore Inventory	        Authenticated
-
-=======
-### 3. Install Dependencies
-python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings python-jose passlib pytest httpx
-### 4. Initialize Database
-```bash
-python init_db.py
-🚀 Running the Application
-Start the development server using Uvicorn:
-
-Bash
-uvicorn main:app --reload
-🚀 Running the Application
-Start the development server using Uvicorn:
-```Bash
-uvicorn main:app --reload
-Open your browser and explore the interactive Swagger UI documentation:
-👉 http://127.0.0.1:8000/docs
-🧪 Running TestsTo run the automated test suite and verify business rules:
-```Bash
-pytest
-📌 Main API Endpoints
-Method	Endpoint	                     Description           	             Access
-POST	  /register	            Register a new customer	                     Public
-POST	  /login	              Authenticate and obtain JWT token	           Public
-GET	    /products	            List active catalog products	Public         public
-POST	  /checkout	            Submit cart items and place order	           Authenticated
-GET	    /orders/me            Fetch logged-in user's order history	       Authenticated
-POST	  /orders/{id}/cancel 	Cancel eligible order & restore inventory	   Authenticated
->>>>>>> fe2b093b94161dc9ba48c9006d482356b5cf39f9
+```
+===================================================================================== 
