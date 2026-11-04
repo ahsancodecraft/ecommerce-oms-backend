@@ -60,7 +60,7 @@ The project strictly follows core Object-Oriented Design principles:
  ```
 ### 🚀 Running the Application
 
-###    Start the development server using Uvicorn:
+### * Start the development server using Uvicorn:
 ```bash
    uvicorn main:app --reload
 ```
