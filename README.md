@@ -43,42 +43,44 @@ The project strictly follows core Object-Oriented Design principles:
 2. Create and activate a virtual environment:
 
 ### 1. Open project folder in VS Code and then Open a new terminal at there  
-   ```bash
-   python -m venv venv
+```bash
+    python -m venv venv
 ```
 ### On Windows Vs-Code Terminal:
 ```bash
-   .\venv\Scripts\activate
+    .\venv\Scripts\activate
 ```
 ### 3. Install Dependencies
 ```bash
-python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings 
+    python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings 
 ```
 ### 4. Initialize Database
 ```bash 
- python init_db.py
+    python init_db.py
  ```
 ### 🚀 Running the Application
 
 ###    Start the development server using Uvicorn:
 ```bash
-uvicorn main:app --reload
+   uvicorn main:app --reload
 ```
 ###  Open your browser and explore the interactive Swagger UI documentation:
 ```go to
-   👉 http://127.0.0.1:8000/docs
+👉  http://127.0.0.1:8000/docs
 ```
 ### 🧪 Running Tests To run the automated test suite and verify business rules(At VS-Code Terminal):
 ```bash
-      pytest
+    pytest
 ```
 ###                        📌 Main API Endpoints
 ``
-### Method 	  Endpoints	         Description	                       Access
-```
- POST	       /register       Register a new customer      	        Public
- POST	      /login	       Authenticate and obtain JWT token	    Public
- GET	     /products	       List active catalog products	            Public
- POST	    /checkout          Submit cart items and place order	    Authenticated
- GET	   /orders/me	       Fetch logged-in user's order history	    Authenticated
- POST     /orders/{id}/cancel  Cancel Orders/Restore Inventory	        Authenticated
+### 📌 Main API Endpoints
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/register` | Register a new customer | Public |
+| **POST** | `/login` | Authenticate and obtain JWT token | Public |
+| **GET** | `/products` | List active catalog products | Public |
+| **POST** | `/checkout` | Submit cart items and place order | Authenticated |
+| **GET** | `/orders/me` | Fetch logged-in user's order history | Authenticated |
+| **POST** | `/orders/{id}/cancel` | Cancel Orders/Restore Inventory | Authenticated |
