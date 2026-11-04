@@ -46,7 +46,7 @@ The project strictly follows core Object-Oriented Design principles:
 ```bash
     python -m venv venv
 ```
-### On Windows Vs-Code Terminal:
+### * On Windows Vs-Code Terminal:
 ```bash
     .\venv\Scripts\activate
 ```
