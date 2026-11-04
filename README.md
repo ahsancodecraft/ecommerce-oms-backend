@@ -49,6 +49,7 @@ python -m venv venv
 ```
 ### On Vs-Code Terminal:
 .\venv\Scripts\activate
+<<<<<<< HEAD
 ``
 ### 3. Install Dependencies
 ```bash
@@ -88,3 +89,32 @@ pytest
  GET	   /orders/me	       Fetch logged-in user's order history	    Authenticated
  POST     /orders/{id}/cancel  Cancel Orders/Restore Inventory	        Authenticated
 
+=======
+### 3. Install Dependencies
+python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings python-jose passlib pytest httpx
+### 4. Initialize Database
+```bash
+python init_db.py
+🚀 Running the Application
+Start the development server using Uvicorn:
+
+Bash
+uvicorn main:app --reload
+🚀 Running the Application
+Start the development server using Uvicorn:
+```Bash
+uvicorn main:app --reload
+Open your browser and explore the interactive Swagger UI documentation:
+👉 http://127.0.0.1:8000/docs
+🧪 Running TestsTo run the automated test suite and verify business rules:
+```Bash
+pytest
+📌 Main API Endpoints
+Method	Endpoint	                     Description           	             Access
+POST	  /register	            Register a new customer	                     Public
+POST	  /login	              Authenticate and obtain JWT token	           Public
+GET	    /products	            List active catalog products	Public         public
+POST	  /checkout	            Submit cart items and place order	           Authenticated
+GET	    /orders/me            Fetch logged-in user's order history	       Authenticated
+POST	  /orders/{id}/cancel 	Cancel eligible order & restore inventory	   Authenticated
+>>>>>>> fe2b093b94161dc9ba48c9006d482356b5cf39f9
