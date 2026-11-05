@@ -1,22 +1,45 @@
-# 🚀 E-Commerce Order Management System (OMS) - Backend API
+# 🚀 Enterprise E-Commerce Order Management System (OMS) - Backend API
 
-A practical, production-grade backend implementation of an E-Commerce Order Management System built using modern technologies and strict **Object-Oriented Programming (OOP)** principles[cite: 27, 28].
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white" alt="SQLAlchemy">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/Pytest-0A7EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="Pytest">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
+
+A robust, enterprise-grade backend implementation of an **E-Commerce Order Management System (OMS)** engineered with strict **Object-Oriented Programming (OOP)** principles, clean architecture patterns, ACID compliance, and secure JWT authentication.
 
 ---
 
-## 🌟 Project Overview & Features
+## 📑 Table of Contents
+1. [Project Overview & Core Features](#-project-overview--core-features)
+2. [Technology Stack](#️-technology-stack)
+3. [Expanded Project Architecture & Directory Structure](#-expanded-project-architecture--directory-structure)
+4. [Object-Oriented Programming & Design Patterns](#-object-oriented-programming--design-patterns)
+5. [Order Lifecycle & State Machine](#-order-lifecycle--state-machine)
+6. [Complete Source Code Implementation](#-complete-source-code-implementation)
+7. [Installation & Setup Guide](#-installation--setup-guide)
+8. [Api End Points & FastAPI Endpoints for reference -->Swagger Specification](#-api-endpoints--swagger-specification)
+9. [Automated Testing Suite](#-automated-testing-suite)
+10. [Production Readiness & Roadmap](#-production-readiness--roadmap)
+---
+
+## 🌟 Project Overview & Core Features
 
 This backend service handles core e-commerce workflows reliably while preventing common retail issues such as overselling, inconsistent pricing, and uncoordinated inventory changes.
 
 * **📦 Product Catalog** ![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?style=flat-square&logo=python&logoColor=white): Manage products with strict validation on stock, pricing, and active status.
-* **🔐 Secure Authentication & Authorization** ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi&logoColor=white)[cite: 28]: JWT-based user registration and role-based access control, ensuring customers can only access and modify their own orders.
+* **🔐 Secure Authentication & Authorization** ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi&logoColor=white): JWT-based user registration and role-based access control, ensuring customers can only access and modify their own orders.
 * **🛒 Shopping Cart & Checkout** ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=sqlalchemy&logoColor=white): Dynamic server-side price calculation using `Decimal`, inventory reservation, and simulated payment processing.
 * **⚙️ Order Lifecycle & State Machine**: Explicit status transitions (`PENDING_PAYMENT` ➔ `CONFIRMED` / `PAYMENT_FAILED` / `CANCELLED`).
 * **🔄 Reliable Cancellation Workflow**: Handle order cancellations and safe inventory restoration without duplicate restocks.
 * **🧪 Automated Testing** ![Pytest](https://img.shields.io/badge/Pytest-0A7EDC?style=flat-square&logo=pytest&logoColor=white): Comprehensive unit, integration, and API test suite built with `pytest`.
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technology Stack 
 
 | Layer | Technology & Badge | Purpose |
 | :--- | :--- | :--- |
@@ -27,10 +50,38 @@ This backend service handles core e-commerce workflows reliably while preventing
 | **ORM** | ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)| Map Python objects to database rows|
 | **Migrations** | ![Alembic](https://img.shields.io/badge/Alembic-3A7A9E?style=for-the-badge&logo=alembic&logoColor=white)| Version database schema management|
 | **Testing** | ![Pytest](https://img.shields.io/badge/Pytest-0A7EDC?style=for-the-badge&logo=pytest&logoColor=white)| Unit, integration, and API tests|
+---
+
+## 📁 Expanded Project Architecture & Directory Structure
+
+```text
+python-backend-project/
+├── .venv/                      # Python virtual environment (isolated package dependencies)
+├── .pytest_cache/              # Pytest execution cache and test reports
+├── __pycache__/                # Compiled Python bytecode cache
+├── app/                        # Main application package
+│   ├── core/                   # Core configurations & security modules
+│   │   └── security.py         # Cryptographic bcrypt hashing & JWT token management
+│   ├── db/                     # Database configuration & session management
+│   │   └── database.py         # SQLAlchemy engine & SessionLocal configurations
+│   ├── models/                 # Domain business logic & ORM database models
+│   │   ├── models.py           # UserModel, ProductModel, Cart, & OrderModel
+│   │   └── payment.py          # Pluggable PaymentProcessor protocols & discount policies
+│   ├── services/               # Business service orchestration & coordination
+│   │   └── services.py         # OrderService & InventoryService logic
+│   ├── api/                    # FastAPI HTTP routes & request handlers
+│   │   └── main.py             # FastAPI server entrypoint, middleware & endpoints
+│   └── tests/                  # Automated quality assurance & testing suite
+│       └── test_oms.py         # Unit, integration, and API test cases (pytest)
+├── init_db.py                  # Database auto-migration setup & sample data seeding
+├── oms.db                      # Durable local SQLite relational storage database file
+├── LICENSE                     # MIT open-source license agreement
+└── README.md                   # Production-grade technical project documentation
+```
 
 ---
 
-## 📂 Project Architecture & OOP Design
+##  Object-Oriented Programming & Design Patterns
 
 The project strictly follows core Object-Oriented Design principles as outlined in the system architecture:
 
@@ -38,8 +89,23 @@ The project strictly follows core Object-Oriented Design principles as outlined 
 2. **Polymorphism & Abstraction** ![FastAPI](https://img.shields.io/badge/Design-Polymorphism-green?style=flat-square): Payment processing uses pluggable protocols (`PaymentProcessor` protocol) allowing alternative providers like `FakePaymentProcessor`.
 3. **Single Responsibility Principle (SRP)** ![SQLAlchemy](https://img.shields.io/badge/Architecture-SRP-orange?style=flat-square): Separation of concerns across database models, domain logic, service layers, and API routes.
 4. **Dependency Inversion** ![Pydantic](https://img.shields.io/badge/Design-DIP-purple?style=flat-square): High-level services depend on abstractions and injected database sessions rather than concrete low-level details.
-
 ---
+
+## 📐 Order Lifecycle & State Machine
+
+The order execution pipeline follows an explicit state transition matrix:
+
+```text
+[CART / CHECKOUT] ➔ PENDING_PAYMENT (Stock Reserved)
+                          │
+       ┌──────────────────┼──────────────────┐
+       ▼                  ▼                  ▼
+   CONFIRMED       PAYMENT_FAILED        CANCELLED
+(Payment Verified)  (Stock Restocked)   (Reservation Released)
+       │
+       ▼
+   SHIPPED ➔ DELIVERED (Requires Return Workflow)
+```
 
 ## 📂 Complete Project Source Code Implementation
 
@@ -608,8 +674,43 @@ def test_order_cancellation_rules():
     order.cancel()
     assert order.status == "CANCELLED"
 ```
+### ⚙️ Installation & Setup Guide
 
-## 🔄 Order Lifecycle & State Rules ![FastAPI](https://img.shields.io/badge/State-Machine-blue?style=flat-square&logo=fastapi&logoColor=white)
+### 1. 📥 Clone & Navigate
+Clone the repository or open the project folder in VS Code.
+
+### 2. 🐍 Create Virtual Environment
+```bash
+python -m venv venv
+```
+* **On Windows PowerShell:**
+```bash
+.\venv\Scripts\activate
+```
+
+### 3. 📦 Install Dependencies
+```bash
+python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings
+```
+
+### 4.🗄️ Initialize Database & Seed data
+```bash
+python init_db.py
+```
+
+### 5. 🚀 Running the Application
+
+* Start the development server with live reload:
+```bash
+uvicorn main:app --reload
+```
+
+* Access interactive Swagger API Documentation:
+  👉 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+## 🔄 API Endpoints & Swagger Specification ![FastAPI](https://img.shields.io/badge/State-Machine-blue?style=flat-square&logo=fastapi&logoColor=white)
 
 The system implements explicit state machine transitions to maintain consistency:
 
@@ -617,43 +718,9 @@ The system implements explicit state machine transitions to maintain consistency
 * `PENDING_PAYMENT` ![Status](https://img.shields.io/badge/Status-Pending%20Payment-yellow?style=flat-square) ➔ `PAYMENT_FAILED` ![Status](https://img.shields.io/badge/Status-Payment%20Failed-red?style=flat-square) (Payment definitively failed)
 * `PENDING_PAYMENT` ![Status](https://img.shields.io/badge/Status-Pending%20Payment-yellow?style=flat-square) ➔ `CANCELLED` ![Status](https://img.shields.io/badge/Status-Cancelled-orange?style=flat-square) (Cancellation allowed, reservation released)
 * `CONFIRMED` ![Status](https://img.shields.io/badge/Status-Confirmed-green?style=flat-square) ➔ `CANCELLED` ![Status](https://img.shields.io/badge/Status-Cancelled-orange?style=flat-square) (Policy allowed; coordinates refund and inventory restoration)
-
 ---
 
-
-
-## ⚙️ Installation & Setup Instructions
-
-### 1. Clone & Navigate
-Clone the repository or open the project folder in VS Code.
-
-### 2. Create Virtual Environment
-```bash
-python -m venv venv
-```
-### 3. Install Dependencies
-```bash
-    python -m pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings 
-```
-### 4. Initialize Database
-```bash 
-    python init_db.py
- ```
-### 🚀 Running the Application
-
-### * Start the development server using Uvicorn:
-```bash
-   uvicorn main:app --reload
-```
-### * Open your browser and explore the interactive Swagger UI documentation:
-```go to
-👉  http://127.0.0.1:8000/docs
-```
-### 🧪 Running Tests To run the automated test suite and verify business rules(At VS-Code Terminal):
-```bash
-    pytest
-```
-### 📌 Main API Endpoints
+### 📌 FastApi API Endpoints for Reference
 
 | Method | Endpoint | Description | Access |
 | :--- | :--- | :--- | :--- |
@@ -663,3 +730,44 @@ python -m venv venv
 | **POST** | `/checkout` | Submit cart items and place order | Authenticated |
 | **GET** | `/orders/me` | Fetch logged-in user's order history | Authenticated |
 | **POST** | `/orders/{id}/cancel` | Cancel Orders/Restore Inventory | Authenticated |
+
+---
+
+### 🛠️ Built With & Technologies Used
+
+<p align="left">
+  <!-- Python -->
+  <a href="https://www.python.org" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
+  </a>
+  &nbsp;&nbsp;
+  <!-- FastAPI -->
+  <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="fastapi" width="40" height="40"/>
+  </a>
+  &nbsp;&nbsp;
+  <!-- Uvicorn -->
+  <a href="https://www.uvicorn.org/" target="_blank" rel="noreferrer">
+    <img src="https://avatars.githubusercontent.com/u/27982998?s=200&v=4" alt="uvicorn" width="40" height="40"/>
+  </a>
+  &nbsp;&nbsp;
+  <!-- SQLAlchemy -->
+  <a href="https://www.sqlalchemy.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlalchemy/sqlalchemy-original.svg" alt="sqlalchemy" width="40" height="40"/>
+  </a>
+</p>
+
+### 🧪 Automated Testing Suite
+
+* To execute the test suite and verify business invariants:
+```bash
+    pytest
+```
+### 📝 Production Readiness & Roadmap
+
+| **Tool** | **Description** |
+| :---: | :--- |
+| ![Alembic](https://img.shields.io/badge/Alembic-000?style=for-the-badge&logo=alembic&logoColor=white) | Full database schema version control integration. |
+| ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white) | Production API webhook integration for real payment capture. |
+| ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=PayPal&logoColor=white) | Production API webhook integration for real payment capture. |
+| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white) | Containerize application using Docker and Docker Compose. |
