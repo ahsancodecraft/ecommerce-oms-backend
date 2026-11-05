@@ -8,13 +8,12 @@ A practical, production-grade backend implementation of an E-Commerce Order Mana
 
 This backend service handles core e-commerce workflows reliably while preventing common retail issues such as overselling, inconsistent pricing, and uncoordinated inventory changes.
 
-* **📦 Product Catalog**: Manage products with strict validation on stock, pricing, and active status[cite: 28].
-* **🔐 Secure Authentication & Authorization**: JWT-based user registration and role-based access control, ensuring customers can only access and modify their own orders[cite: 28, 36].
-* **🛒 Shopping Cart & Checkout**: Dynamic server-side price calculation using `Decimal`, inventory reservation, and simulated payment processing[cite: 28, 32].
-* **⚙️ Order Lifecycle & State Machine**: Explicit status transitions (`PENDING_PAYMENT` ➔ `CONFIRMED` / `PAYMENT_FAILED` / `CANCELLED`)[cite: 31, 32].
-* **🔄 Reliable Cancellation Workflow**: Handle order cancellations and safe inventory restoration without duplicate restocks[cite: 29].
-* **🧪 Automated Testing**: Comprehensive unit, integration, and API test suite built with `pytest`[cite: 28, 36].
-
+* **📦 Product Catalog** ![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?style=flat-square&logo=python&logoColor=white): Manage products with strict validation on stock, pricing, and active status.
+* **🔐 Secure Authentication & Authorization** ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi&logoColor=white)[cite: 28]: JWT-based user registration and role-based access control, ensuring customers can only access and modify their own orders.
+* **🛒 Shopping Cart & Checkout** ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=sqlalchemy&logoColor=white): Dynamic server-side price calculation using `Decimal`, inventory reservation, and simulated payment processing.
+* **⚙️ Order Lifecycle & State Machine**: Explicit status transitions (`PENDING_PAYMENT` ➔ `CONFIRMED` / `PAYMENT_FAILED` / `CANCELLED`).
+* **🔄 Reliable Cancellation Workflow**: Handle order cancellations and safe inventory restoration without duplicate restocks.
+* **🧪 Automated Testing** ![Pytest](https://img.shields.io/badge/Pytest-0A7EDC?style=flat-square&logo=pytest&logoColor=white): Comprehensive unit, integration, and API test suite built with `pytest`.
 ---
 
 ## 🛠️ Technology Stack & Logos
