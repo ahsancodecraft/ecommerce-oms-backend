@@ -16,7 +16,7 @@ This backend service handles core e-commerce workflows reliably while preventing
 * **🧪 Automated Testing** ![Pytest](https://img.shields.io/badge/Pytest-0A7EDC?style=flat-square&logo=pytest&logoColor=white): Comprehensive unit, integration, and API test suite built with `pytest`.
 ---
 
-## 🛠️ Technology Stack & Logos
+## 🛠️ Technology Stack
 
 | Layer | Technology & Badge | Purpose |
 | :--- | :--- | :--- |
@@ -32,12 +32,12 @@ This backend service handles core e-commerce workflows reliably while preventing
 
 ## 📂 Project Architecture & OOP Design
 
-The project strictly follows core Object-Oriented Design principles as outlined in the system architecture:
+The project strictly follows core Object-Oriented Design principles as outlined in the system architecture[cite: 27, 28]:
 
-1. **Encapsulation**: Domain models (`Product`, `Order`) protect internal states and prevent invalid assignments (e.g., negative stock or zero pricing) through validated methods[cite: 29].
-2. **Polymorphism & Abstraction**: Payment processing uses pluggable protocols (`PaymentProcessor` protocol) allowing alternative providers like `FakePaymentProcessor`[cite: 30].
-3. **Single Responsibility Principle (SRP)**: Separation of concerns across database models, domain logic, service layers, and API routes[cite: 31].
-4. **Dependency Inversion**: High-level services depend on abstractions and injected database sessions rather than concrete low-level details[cite: 31].
+1. **Encapsulation** ![Python](https://img.shields.io/badge/OOP-Encapsulation-blue?style=flat-square): Domain models (`Product`, `Order`) protect internal states and prevent invalid assignments (e.g., negative stock or zero pricing) through validated methods.
+2. **Polymorphism & Abstraction** ![FastAPI](https://img.shields.io/badge/Design-Polymorphism-green?style=flat-square): Payment processing uses pluggable protocols (`PaymentProcessor` protocol) allowing alternative providers like `FakePaymentProcessor`.
+3. **Single Responsibility Principle (SRP)** ![SQLAlchemy](https://img.shields.io/badge/Architecture-SRP-orange?style=flat-square): Separation of concerns across database models, domain logic, service layers, and API routes.
+4. **Dependency Inversion** ![Pydantic](https://img.shields.io/badge/Design-DIP-purple?style=flat-square): High-level services depend on abstractions and injected database sessions rather than concrete low-level details.
 
 ---
 
