@@ -32,7 +32,7 @@ This backend service handles core e-commerce workflows reliably while preventing
 
 ## 📂 Project Architecture & OOP Design
 
-The project strictly follows core Object-Oriented Design principles as outlined in the system architecture[cite: 27, 28]:
+The project strictly follows core Object-Oriented Design principles as outlined in the system architecture:
 
 1. **Encapsulation** ![Python](https://img.shields.io/badge/OOP-Encapsulation-blue?style=flat-square): Domain models (`Product`, `Order`) protect internal states and prevent invalid assignments (e.g., negative stock or zero pricing) through validated methods.
 2. **Polymorphism & Abstraction** ![FastAPI](https://img.shields.io/badge/Design-Polymorphism-green?style=flat-square): Payment processing uses pluggable protocols (`PaymentProcessor` protocol) allowing alternative providers like `FakePaymentProcessor`.
@@ -41,21 +41,23 @@ The project strictly follows core Object-Oriented Design principles as outlined 
 
 ---
 
-## 🔄 Order Lifecycle & State Rules
+## 🔄 Order Lifecycle & State Rules ![FastAPI](https://img.shields.io/badge/State-Machine-blue?style=flat-square&logo=fastapi&logoColor=white)
 
 The system implements explicit state machine transitions to maintain consistency:
 
-* `PENDING_PAYMENT` ➔ `CONFIRMED` (Payment verified successful)[cite: 31, 32]
-* `PENDING_PAYMENT` ➔ `PAYMENT_FAILED` (Payment definitively failed)
-* `PENDING_PAYMENT` ➔ `CANCELLED` (Cancellation allowed, reservation released)
-* `CONFIRMED` ➔ `CANCELLED` (Policy allowed; coordinates refund and inventory restoration)[cite: 32]
+* `PENDING_PAYMENT` ![Status](https://img.shields.io/badge/Status-Pending%20Payment-yellow?style=flat-square) ➔ `CONFIRMED` ![Status](https://img.shields.io/badge/Status-Confirmed-green?style=flat-square) (Payment verified successful)
+* `PENDING_PAYMENT` ![Status](https://img.shields.io/badge/Status-Pending%20Payment-yellow?style=flat-square) ➔ `PAYMENT_FAILED` ![Status](https://img.shields.io/badge/Status-Payment%20Failed-red?style=flat-square) (Payment definitively failed)
+* `PENDING_PAYMENT` ![Status](https://img.shields.io/badge/Status-Pending%20Payment-yellow?style=flat-square) ➔ `CANCELLED` ![Status](https://img.shields.io/badge/Status-Cancelled-orange?style=flat-square) (Cancellation allowed, reservation released)
+* `CONFIRMED` ![Status](https://img.shields.io/badge/Status-Confirmed-green?style=flat-square) ➔ `CANCELLED` ![Status](https://img.shields.io/badge/Status-Cancelled-orange?style=flat-square) (Policy allowed; coordinates refund and inventory restoration)
 
 ---
+
+
 
 ## ⚙️ Installation & Setup Instructions
 
 ### 1. Clone & Navigate
-Clone the repository or open the project folder in VS Code[cite: 32].
+Clone the repository or open the project folder in VS Code.
 
 ### 2. Create Virtual Environment
 ```bash
